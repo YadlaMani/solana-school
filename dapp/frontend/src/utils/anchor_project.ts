@@ -1,0 +1,237 @@
+export type VaultProgram = {
+  address: "4j3ZJxVbhBvwHGHC66Km4bgr6asx3mA8WBom1dJRp2ep";
+  metadata: {
+    name: "anchor_project";
+    version: "0.1.0";
+    spec: "0.1.0";
+    description: "Created with Anchor";
+  };
+  instructions: [
+    {
+      name: "deposit";
+      discriminator: [242, 35, 198, 137, 82, 225, 242, 182];
+      accounts: [
+        {
+          name: "signer";
+          writable: true;
+          signer: true;
+        },
+        {
+          name: "vault";
+          writable: true;
+          pda: {
+            seeds: [
+              {
+                kind: "const";
+                value: [118, 97, 117, 108, 116];
+              },
+              {
+                kind: "account";
+                path: "receiver";
+              }
+            ];
+          };
+        },
+        {
+          name: "receiver";
+        },
+        {
+          name: "system_program";
+          address: "11111111111111111111111111111111";
+        }
+      ];
+      args: [
+        {
+          name: "amount";
+          type: "u64";
+        }
+      ];
+    },
+    {
+      name: "withdraw";
+      discriminator: [183, 18, 70, 156, 148, 109, 161, 34];
+      accounts: [
+        {
+          name: "receiver";
+          writable: true;
+          signer: true;
+        },
+        {
+          name: "vault";
+          writable: true;
+          pda: {
+            seeds: [
+              {
+                kind: "const";
+                value: [118, 97, 117, 108, 116];
+              },
+              {
+                kind: "account";
+                path: "receiver";
+              }
+            ];
+          };
+        },
+        {
+          name: "system_program";
+          address: "11111111111111111111111111111111";
+        }
+      ];
+      args: [];
+    }
+  ];
+  accounts: [
+    {
+      name: "Vault";
+      discriminator: [1];
+    }
+  ];
+  errors: [
+    {
+      code: 6000;
+      name: "InsufficientFunds";
+      msg: "Insufficient Funds";
+    }
+  ];
+  types: [
+    {
+      name: "Vault";
+      type: {
+        kind: "struct";
+        fields: [
+          {
+            name: "seed";
+            type: "u64";
+          },
+          {
+            name: "receiver";
+            type: "pubkey";
+          },
+          {
+            name: "bump";
+            type: "u8";
+          }
+        ];
+      };
+    }
+  ];
+};
+
+export const IDL: VaultProgram = {
+  address: "4j3ZJxVbhBvwHGHC66Km4bgr6asx3mA8WBom1dJRp2ep",
+  metadata: {
+    name: "anchor_project",
+    version: "0.1.0",
+    spec: "0.1.0",
+    description: "Created with Anchor",
+  },
+  instructions: [
+    {
+      name: "deposit",
+      discriminator: [242, 35, 198, 137, 82, 225, 242, 182],
+      accounts: [
+        {
+          name: "signer",
+          writable: true,
+          signer: true,
+        },
+        {
+          name: "vault",
+          writable: true,
+          pda: {
+            seeds: [
+              {
+                kind: "const",
+                value: [118, 97, 117, 108, 116],
+              },
+              {
+                kind: "account",
+                path: "receiver",
+              },
+            ],
+          },
+        },
+        {
+          name: "receiver",
+        },
+        {
+          name: "system_program",
+          address: "11111111111111111111111111111111",
+        },
+      ],
+      args: [
+        {
+          name: "amount",
+          type: "u64",
+        },
+      ],
+    },
+    {
+      name: "withdraw",
+      discriminator: [183, 18, 70, 156, 148, 109, 161, 34],
+      accounts: [
+        {
+          name: "receiver",
+          writable: true,
+          signer: true,
+        },
+        {
+          name: "vault",
+          writable: true,
+          pda: {
+            seeds: [
+              {
+                kind: "const",
+                value: [118, 97, 117, 108, 116],
+              },
+              {
+                kind: "account",
+                path: "receiver",
+              },
+            ],
+          },
+        },
+        {
+          name: "system_program",
+          address: "11111111111111111111111111111111",
+        },
+      ],
+      args: [],
+    },
+  ],
+  accounts: [
+    {
+      name: "Vault",
+      discriminator: [1],
+    },
+  ],
+  errors: [
+    {
+      code: 6000,
+      name: "InsufficientFunds",
+      msg: "Insufficient Funds",
+    },
+  ],
+  types: [
+    {
+      name: "Vault",
+      type: {
+        kind: "struct",
+        fields: [
+          {
+            name: "seed",
+            type: "u64",
+          },
+          {
+            name: "receiver",
+            type: "pubkey",
+          },
+          {
+            name: "bump",
+            type: "u8",
+          },
+        ],
+      },
+    },
+  ],
+};
