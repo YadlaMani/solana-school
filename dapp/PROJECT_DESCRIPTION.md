@@ -1,6 +1,6 @@
 # Project Description
 
-**Deployed Frontend URL:** [TODO: Link to your deployed frontend]
+**Deployed Frontend URL:** https://solana-school.vercel.app/
 
 **Solana Program ID:** 4j3ZJxVbhBvwHGHC66Km4bgr6asx3mA8WBom1dJRp2ep
 
